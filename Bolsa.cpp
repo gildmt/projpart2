@@ -1415,7 +1415,7 @@ void Bolsa::ad_noticia() {
 	string nomeJornal;
 	string titulo;
 	Data ultAtividade;
-	int rating;
+	int rating, dia, mes, ano;
 
 	cout << endl << endl;
 	cout << TAB << "Nome do Jornal: ";
@@ -1436,11 +1436,20 @@ void Bolsa::ad_noticia() {
 		return;
 	}
 
+	cout << TAB << "Dia da noticia: ";
+	dia = leInteiro(1, 31);
+
+	cout << TAB << "Mes da noticia: ";
+	mes = leInteiro(1, 12);
+
+	cout << TAB << "Ano da noticia: ";
+	ano = leInteiro(1900, 2016);
+
 	cout << TAB << "Rating da noticia: ";
 	rating = leInteiro(0, 10);
 	
 	ultAtividade = getData();
-	Noticia nt1(ultAtividade.getDia(), ultAtividade.getMes(), ultAtividade.getAno(), nomeJornal, titulo, rating);
+	Noticia nt1(dia, mes, ano, nomeJornal, titulo, rating);
 	arvoreNoticias.insert(nt1);
 }
 
