@@ -9,6 +9,7 @@
 #include "Data.h"
 #include "Menus.h"
 #include "Utils.h"
+#include "Noticias.h"
 #include <iostream>
 #include <fstream> 
 #include <string>
@@ -22,14 +23,14 @@ string fichClientes, fichTransacoes, fichOrdensVenda, fichOrdensCompra;
 
 int main(){
 
-	if (infoInicial(fichClientes, fichTransacoes, fichOrdensVenda, fichOrdensCompra))
+	/*if (infoInicial(fichClientes, fichTransacoes, fichOrdensVenda, fichOrdensCompra))
 		return 1;
 
-	// cria bolsa
+	// cria bolsa*/
 	Bolsa bolsa_de_valores;
 	
 	//le ficheiros
-	bolsa_de_valores.le_ficheiros(fichClientes, fichTransacoes, fichOrdensVenda, fichOrdensCompra);
+	/*bolsa_de_valores.le_ficheiros(fichClientes, fichTransacoes, fichOrdensVenda, fichOrdensCompra);*/
 
 	opcoesIniciais(bolsa_de_valores); // menu inicial com as grandes opcoes
 	// que implementam as funcionalidades

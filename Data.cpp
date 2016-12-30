@@ -88,22 +88,22 @@ bool Data::operator <(const Data& d) {
 
 	if (ano < d.ano)
 		return true;
-
-	if (ano > d.ano)
+	else if (ano = d.ano)
+	{
+		if (mes < d.mes)
+			return true;
+		else if (mes == d.mes)
+		{
+			if (dia < d.dia)
+				return true;
+			else
+				return false;
+		}
+		else
+			return false;
+	}
+	else
 		return false;
-
-	// mesmo ano
-	if (mes < d.mes)
-		return true;
-
-	if (mes > d.mes)
-		return false;
-
-	// mesmo mes
-	if (dia < d.dia)
-		return true;
-
-	return false;
 }
 
 ostream & operator <<(ostream& os, const Data& d) {

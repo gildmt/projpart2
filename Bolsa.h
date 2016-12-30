@@ -20,6 +20,7 @@
 #include "Utils.h"
 #include "Transacao.h"
 #include "insertionSort.h"
+#include "Noticias.h"
 
 
 using namespace std;
@@ -43,7 +44,8 @@ private:
 
 	/** @brief	Tabela de Dispersão dos clientes inativos da bolsa. */
 	tabHCli cliInativos;
-
+	/** @brief	Arvore de pesquisa com noticias sobre empresas. */
+	BST<Noticia> arvoreNoticias;
 
 public:
 
@@ -53,7 +55,7 @@ public:
 	 * @brief	Construtor por defeito.
 	 */
 
-	Bolsa() {};
+	Bolsa():arvoreNoticias(Noticia(0, 0, 0, " ", " ", 0)) {};
 
 	/**
 	 * @fn	void Bolsa::le_ficheiros(string & fichClientes, string & fichTransacoes, string & fichOrdensVenda, string & fichOrdensCompra);
@@ -241,6 +243,46 @@ public:
 	void listar_clientes_ativos();
 
 	void listar_clientes_inativos();
+
+	/**
+	* @fn	void Bolsa::listar_noticias_titulo();
+	*
+	* @brief	Lista noticias por titulo da empresa que e sobre.
+	*/
+
+	void listar_noticias_titulo();
+
+	/**
+	* @fn	void Bolsa::listar_noticias_intervalo_de_tempo();
+	*
+	* @brief	Lista noticias por dia, mes ou ano.
+	*/
+
+	void listar_noticias_intervalo_de_tempo();
+
+	/**
+	* @fn	void Bolsa::ad_noticia();
+	*
+	* @brief	Adiciona noticia a arvore de noticias.
+	*/
+
+	void ad_noticia();
+
+	/**
+	* @fn	void Bolsa::rem_noticia();
+	*
+	* @brief	Remove noticia da arvore de noticias.
+	*/
+
+	void rem_noticia();
+
+	/**
+	* @fn	void Bolsa::actualiza_rating();
+	*
+	* @brief	Actualiza o rating de uma noticia da arvore de noticias.
+	*/
+
+	void actualiza_rating();
 };
 
 #endif /* BOLSA_H_ */

@@ -106,9 +106,14 @@ unsigned short int menuInicial(){
 	cout << TAB << "12 - Alterar telemovel Cliente." << endl;
 	cout << TAB << "13 - Consultar Lista de Clientes ativos." << endl;
 	cout << TAB << "14 - Consultar Lista de Clientes inativos." << endl;
+	cout << TAB << "15 - Adicionar Noticia." << endl;
+	cout << TAB << "16 - Remover Noticia." << endl;
+	cout << TAB << "17 - Alterar Rating de Noticia." << endl;
+	cout << TAB << "18 - Consultar Noticias por Titulo de empresa." << endl;
+	cout << TAB << "19 - Consultar Noticias por data." << endl;
 	cout << TAB << "0 - Sair do programa" << endl << endl;
 	cout << TAB << "Qual a sua opcao: ";
-	opcao = leInteiro(0, 14);
+	opcao = leInteiro(0, 19);
 
 	if (opcao == 0)
 		return 0;
@@ -152,7 +157,17 @@ void opcoesIniciais(Bolsa & bolsa_de_valores){
 		case 13: bolsa_de_valores.listar_clientes_ativos();
 			break;
 		case 14: bolsa_de_valores.listar_clientes_inativos();
-
+			break;
+		case 15: bolsa_de_valores.ad_noticia();
+			break;
+		case 16: bolsa_de_valores.rem_noticia();
+			break;
+		case 17: bolsa_de_valores.actualiza_rating();
+			break;
+		case 18: bolsa_de_valores.listar_noticias_titulo();
+			break;
+		case 19: bolsa_de_valores.listar_noticias_intervalo_de_tempo();
+			break;
 	}
 
 	// guarda todas as alterações

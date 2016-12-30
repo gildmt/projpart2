@@ -1,5 +1,5 @@
 /*
-* OrdemVenda.cpp
+* Bolsa.cpp
 *
 *  Created on: 17/10/2016
 *      Author: Gil Teixeira & Paulo Correia
@@ -458,9 +458,6 @@ void Bolsa::ad_ordem_venda(){
 	return;
 }
 
-
-
-
 void Bolsa::ad_cli(){
 	string nome;
 	long nif;
@@ -517,8 +514,6 @@ void Bolsa::ad_cli(){
 	guarda_alteracoes(1, fichClientes);
 }
 
-
-
 void Bolsa::rem_ordem_compra(){
 	string titulo;
 	long nif;
@@ -567,8 +562,6 @@ void Bolsa::rem_ordem_compra(){
 
 	espera_input();
 }
-
-
 
 void Bolsa::rem_ordem_venda(){
 	string titulo;
@@ -619,8 +612,6 @@ void Bolsa::rem_ordem_venda(){
 	espera_input();
 
 }
-
-
 
 void Bolsa::rem_cli(){
 	long nif;
@@ -676,12 +667,6 @@ void Bolsa::rem_cli(){
 	espera_input();
 
 }
-
-
-
-
-
-
 
 void Bolsa::listar_transacoes_cli(){
 	long nif;
@@ -1241,4 +1226,336 @@ void Bolsa::listar_clientes_inativos(){
 	linha(36);
 	cout << endl;
 	espera_input();
+}
+
+void Bolsa::listar_noticias_titulo() {
+	string titulo;
+
+	cout << endl << endl;
+	cout << TAB << "Titulo da empresa: ";
+	titulo = leTitulo();
+
+	if (titulo.empty()) {
+		espera_input();
+		return;
+	}
+
+	BSTItrIn<Noticia> it(arvoreNoticias);
+	vector<Noticia> aux;
+
+	while (!it.isAtEnd())
+	{
+		if (it.retrieve().getTitle() == titulo)
+			aux.push_back(it.retrieve());
+		it.advance();
+	}
+	if (aux.empty()) {
+		cout << endl << TAB << "Nenhuma noticia sobre essa empresa.\n\n";
+		espera_input();
+		return;
+	}
+
+	clearScreen();
+	cout << endl;
+	linha(34);
+	cout << TAB << left << BARRA
+		<< setw(16) << " Nome do Jornal " << BARRA
+		<< setw(17) << " Nome da Empresa " << BARRA
+		<< setw(12) << " Data" << BARRA
+		<< setw(16) << " Classificacao " << BARRA
+		<< endl;
+	linha(34);
+
+	for (size_t i = 0; i < aux.size(); i++)
+		cout << aux.at(i);
+
+	linha(34);
+	cout << endl << endl;
+
+	espera_input();
+}
+
+void Bolsa::listar_noticias_intervalo_de_tempo() {
+	int opcao, dia, mes, ano;
+	BSTItrIn<Noticia> it(arvoreNoticias);
+	vector<Noticia> aux;
+
+	cout << endl;
+	cout << TAB << "1 - Transacoes efectuadas num dia." << endl;
+	cout << TAB << "2 - Transacoes efectuadas num mes." << endl;
+	cout << TAB << "3 - Transacoes efectuadas num ano." << endl;
+	cout << TAB << "4 - Voltar ao menu inicial." << endl << endl;
+	cout << TAB << "Qual a sua opcao: ";
+	opcao = leInteiro(1, 4);
+
+	switch (opcao) {
+	case 1:
+		cout << endl << endl;
+		cout << TAB << "Dia da transacao: ";
+		dia = leInteiro(0, 31);
+		cout << TAB << "Mes da transacao: ";
+		mes = leInteiro(0, 12);
+		cout << TAB << "Ano da transacao: ";
+		ano = leInteiro(1990, 2100);
+
+		while (!it.isAtEnd())
+		{
+			if (it.retrieve().getDate().getAno() == ano && it.retrieve().getDate().getMes() == mes &&
+				it.retrieve().getDate().getDia() == dia)
+				aux.push_back(it.retrieve());
+			it.advance();
+		}
+		if (aux.empty()) {
+			cout << endl << TAB << "Nenhuma noticia nesse periodo de tempo.\n\n";
+			espera_input();
+			return;
+		}
+
+		clearScreen();
+		cout << endl;
+		linha(34);
+		cout << TAB << left << BARRA
+			<< setw(16) << " Nome do Jornal " << BARRA
+			<< setw(17) << " Nome da Empresa " << BARRA
+			<< setw(12) << " Data" << BARRA
+			<< setw(16) << " Classificacao " << BARRA
+			<< endl;
+		linha(34);
+
+		for (size_t i = 0; i < aux.size(); i++)
+			cout << aux.at(i);
+
+		linha(34);
+		cout << endl << endl;
+
+		espera_input();
+		break;
+
+	case 2:
+		cout << endl << endl;
+		cout << TAB << "Mes da transacao: ";
+		mes = leInteiro(0, 12);
+		cout << TAB << "Ano da transacao: ";
+		ano = leInteiro(1990, 2100);
+
+		while (!it.isAtEnd())
+		{
+			if (it.retrieve().getDate().getAno() == ano && it.retrieve().getDate().getMes() == mes)
+				aux.push_back(it.retrieve());
+			it.advance();
+		}
+		if (aux.empty()) {
+			cout << endl << TAB << "Nenhuma noticia nesse periodo de tempo.\n\n";
+			espera_input();
+			return;
+		}
+
+		clearScreen();
+		cout << endl;
+		linha(34);
+		cout << TAB << left << BARRA
+			<< setw(16) << " Nome do Jornal " << BARRA
+			<< setw(17) << " Nome da Empresa " << BARRA
+			<< setw(12) << " Data" << BARRA
+			<< setw(16) << " Classificacao " << BARRA
+			<< endl;
+		linha(34);
+
+		for (size_t i = 0; i < aux.size(); i++)
+			cout << aux.at(i);
+
+		linha(34);
+		cout << endl << endl;
+
+		espera_input();
+		break;
+	case 3:
+		cout << endl << endl;
+		cout << TAB << "Ano da transacao: ";
+		ano = leInteiro(1990, 2100);
+
+		while (!it.isAtEnd())
+		{
+			if (it.retrieve().getDate().getAno() == ano)
+				aux.push_back(it.retrieve());
+			it.advance();
+		}
+		if (aux.empty()) {
+			cout << endl << TAB << "Nenhuma noticia nesse periodo de tempo.\n\n";
+			espera_input();
+			return;
+		}
+
+		clearScreen();
+		cout << endl;
+		linha(34);
+		cout << TAB << left << BARRA
+			<< setw(16) << " Nome do Jornal " << BARRA
+			<< setw(17) << " Nome da Empresa " << BARRA
+			<< setw(12) << " Data" << BARRA
+			<< setw(16) << " Classificacao " << BARRA
+			<< endl;
+		linha(34);
+
+		for (size_t i = 0; i < aux.size(); i++)
+			cout << aux.at(i);
+
+		linha(34);
+		cout << endl << endl;
+
+		espera_input();
+		break;
+	case 4:
+		return;
+		break;
+	}
+}
+
+void Bolsa::ad_noticia() {
+	string nomeJornal;
+	string titulo;
+	Data ultAtividade;
+	int rating;
+
+	cout << endl << endl;
+	cout << TAB << "Nome do Jornal: ";
+	getline(cin, nomeJornal);
+
+	if (nomeJornal.empty()) {
+		cout << TAB << "Input invalido.";
+		espera_input();
+		return;
+	}
+
+	cout << TAB << "Titulo da empresa: ";
+	getline(cin, titulo);
+
+	if (titulo.empty()) {
+		cout << TAB << "Input invalido.";
+		espera_input();
+		return;
+	}
+
+	cout << TAB << "Rating da noticia: ";
+	rating = leInteiro(0, 10);
+	
+	ultAtividade = getData();
+	Noticia nt1(ultAtividade.getDia(), ultAtividade.getMes(), ultAtividade.getAno(), nomeJornal, titulo, rating);
+	arvoreNoticias.insert(nt1);
+}
+
+void Bolsa::rem_noticia()
+{
+	string nomeJornal;
+	string titulo;
+	int dia, mes, ano;
+
+	cout << endl << endl;
+	cout << TAB << "Nome do Jornal: ";
+	getline(cin, nomeJornal);
+
+	if (nomeJornal.empty()) {
+		cout << TAB << "Input invalido.";
+		espera_input();
+		return;
+	}
+
+	cout << TAB << "Titulo da empresa: ";
+	getline(cin, titulo);
+
+	if (titulo.empty()) {
+		cout << TAB << "Input invalido.";
+		espera_input();
+		return;
+	}
+
+	cout << TAB << "Dia da noticia: ";
+	dia = leInteiro(1, 31);
+
+	cout << TAB << "Mes da noticia: ";
+	mes = leInteiro(1, 12);
+
+	cout << TAB << "Ano da noticia: ";
+	ano = leInteiro(1900, 2016);
+
+	Noticia nt1(dia, mes, ano, nomeJornal, titulo, 0);
+	
+	BSTItrIn<Noticia> it(arvoreNoticias);
+	bool exists = false;
+
+	while (!it.isAtEnd())
+	{
+		if (it.retrieve() == nt1)
+			exists = true;
+		it.advance();
+	}
+
+	if(exists)
+		arvoreNoticias.remove(nt1);
+	else
+	{
+		cout << endl << TAB << "Nenhuma noticia com esses dados.\n\n";
+		espera_input();
+		return;
+	}
+}
+
+void Bolsa::actualiza_rating()
+{
+	string nomeJornal;
+	string titulo;
+	int rating, dia, mes, ano;
+
+	cout << endl << endl;
+	cout << TAB << "Nome do Jornal: ";
+	getline(cin, nomeJornal);
+
+	if (nomeJornal.empty()) {
+		cout << TAB << "Input invalido.";
+		espera_input();
+		return;
+	}
+
+	cout << TAB << "Titulo da empresa: ";
+	getline(cin, titulo);
+
+	if (titulo.empty()) {
+		cout << TAB << "Input invalido.";
+		espera_input();
+		return;
+	}
+
+	cout << TAB << "Dia da noticia: ";
+	dia = leInteiro(1, 31);
+
+	cout << TAB << "Mes da noticia: ";
+	mes = leInteiro(1, 12);
+
+	cout << TAB << "Ano da noticia: ";
+	ano = leInteiro(1900, 2016);
+
+	cout << TAB << "Novo rating da noticia: ";
+	rating = leInteiro(0, 10);
+
+	Noticia nt1(dia, mes, ano, nomeJornal, titulo, 0);
+
+	BSTItrIn<Noticia> it(arvoreNoticias);
+	bool exists = false;
+
+	while (!it.isAtEnd())
+	{
+		if (it.retrieve() == nt1)
+		{
+			it.retrieve().setRating(rating);
+			exists = true;
+		}
+		it.advance();
+	}
+
+	if (!exists)
+	{
+		cout << endl << TAB << "Nenhuma noticia com esses dados.\n\n";
+		espera_input();
+		return;
+	}
 }
