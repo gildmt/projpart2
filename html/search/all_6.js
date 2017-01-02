@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['le_5fficheiros',['le_ficheiros',['../class_bolsa.html#ae5c56ed76c7d35f2e2bc530f4b8b9e1f',1,'Bolsa']]],
+  ['le_5fficheiros_5fcli',['le_ficheiros_cli',['../class_bolsa.html#a2f295e1c0ddd43401056bde7d6a9bfde',1,'Bolsa']]],
+  ['le_5fficheiros_5fges',['le_ficheiros_ges',['../class_bolsa.html#a50dc006024163cbc8717afb4710eec54',1,'Bolsa']]],
+  ['le_5fficheiros_5fnos',['le_ficheiros_nos',['../class_bolsa.html#a32f066b1477247c4ee7e1d30d7375453',1,'Bolsa']]],
+  ['le_5fficheiros_5fordc',['le_ficheiros_ordc',['../class_bolsa.html#a57e3864eac22b2690e04fb8be39b5e58',1,'Bolsa']]],
+  ['le_5fficheiros_5fordv',['le_ficheiros_ordv',['../class_bolsa.html#ab0cd2fab3d7490d5d4a431e5cb1106e6',1,'Bolsa']]],
+  ['le_5fficheiros_5ftran',['le_ficheiros_tran',['../class_bolsa.html#ab099261f63bff9e274b94bca96cbd2f4',1,'Bolsa']]],
+  ['lista_5fgestores',['lista_gestores',['../class_bolsa.html#a8f58fa22ad838448e01e8fa0d55f2cbb',1,'Bolsa']]],
+  ['listar_5fclientes',['listar_clientes',['../class_bolsa.html#aba662f57e78213bee6de3db7c06c7293',1,'Bolsa']]],
+  ['listar_5fclientes_5fativos',['listar_clientes_ativos',['../class_bolsa.html#a8449176183759f648507ad54013e4a74',1,'Bolsa']]],
+  ['listar_5fclientes_5finativos',['listar_clientes_inativos',['../class_bolsa.html#a803fab361779a34742139a354e8344a5',1,'Bolsa']]],
+  ['listar_5finfo_5fgestor',['listar_info_gestor',['../class_bolsa.html#a9a4b58ca7356ec5df5cf41c98cb810bb',1,'Bolsa']]],
+  ['listar_5fnoticias_5fintervalo_5fde_5ftempo',['listar_noticias_intervalo_de_tempo',['../class_bolsa.html#a8111b6293c7d83baf0d9376650d44a3e',1,'Bolsa']]],
+  ['listar_5fnoticias_5ftitulo',['listar_noticias_titulo',['../class_bolsa.html#afd4b6ba2b4e6215181df5724d17e0ef9',1,'Bolsa']]],
+  ['listar_5fordenscompra',['listar_ordensCompra',['../class_bolsa.html#a419cf3df5db87b4925eb616af1180f88',1,'Bolsa']]],
+  ['listar_5fordensvenda',['listar_ordensVenda',['../class_bolsa.html#abd28d5b93c338a05deccf0adbac23ba1',1,'Bolsa']]],
+  ['listar_5ftodas_5fnoticias',['listar_todas_noticias',['../class_bolsa.html#a1a023d27bb5d8d4eb9926c046bc25d85',1,'Bolsa']]],
+  ['listar_5ftransacoes',['listar_transacoes',['../class_bolsa.html#a4676ec9295a14426f3c70e91dd36fde1',1,'Bolsa']]],
+  ['listar_5ftransacoes_5fcli',['listar_transacoes_cli',['../class_bolsa.html#ad96a358bf03c103f55b8139da8a0d61a',1,'Bolsa']]],
+  ['listar_5ftransacoes_5fintervalo_5fde_5ftempo',['listar_transacoes_intervalo_de_tempo',['../class_bolsa.html#acb012fa60aa074fd861168ca3aedadd0',1,'Bolsa']]],
+  ['listar_5ftransacoes_5ftitulo',['listar_transacoes_titulo',['../class_bolsa.html#aeac084d57bf9382c83516f1f0c043936',1,'Bolsa']]]
+];
